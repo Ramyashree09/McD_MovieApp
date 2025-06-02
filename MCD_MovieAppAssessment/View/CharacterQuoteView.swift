@@ -1,0 +1,73 @@
+//
+//  Untitled.swift
+//  MCD_MovieAppAssessment
+//
+//  Created by Ramyashree S on 5/29/25.
+//
+
+import SwiftUI
+
+struct CharacterQuotesView : View {
+    @StateObject private var quotesViewModel: QuotesViewModel<QuotesListClass>
+    @Binding var movieId : String
+    @Binding var pagination : Bool
+    var characterDetail : CharacterDetail?
+    
+    init(characterDetail: CharacterDetail? = nil,
+         movieId: Binding<String>, pagination: Binding<Bool>) {
+        let quotesUseCase = FetchDataUseCase(service: QuotesListClass())
+        _quotesViewModel = StateObject(wrappedValue: QuotesViewModel(quotesUseCase:
+                                                                        quotesUseCase))
+        
+        self.characterDetail = characterDetail
+        _movieId = movieId
+        _pagination = pagination
+    }
+    
+    var body: some View {
+        
+        VStack {
+            Text("NAME : \(characterDetail?.name ?? "")")
+            Text("GENDER : \(characterDetail?.gender ?? "")")
+            Text("")
+        }
+        .frame(width: UIScreen.main.bounds.width)
+        .background(Color.clear)
+        .bold()
+        
+        Spacer()
+        VStack {
+            if FeatureFlagClass.shared.isQuotesFeatureEnabled {
+                Text("\(quotesViewModel.filteredQuotesList.count) Quotes Found")
+                    .bold().background(Color.cyan)
+                List(quotesViewModel.filteredQuotesList, id: \.self) {
+                    quote in
+                    Text("Quote : \(quote.dialog)")
+                        .lineLimit(nil)
+                        .listRowBackground(AppColors.appTheme)
+                }
+                .listRowSpacing(10)
+                
+            } else {
+                Spacer()
+                Text("Quotes feature is disabled")
+                    .font(.headline)
+                    .foregroundColor(.gray)
+                Spacer()
+            }
+        }
+        .onAppear {
+            Task {
+                pagination = false
+                await quotesViewModel.fetchQuotesList()
+                await
+               
+                quotesViewModel.filteredQuotesList = quotesViewModel.filterQuotesByID(movieID: movieId, characterID: characterDetail?.id ?? "")
+            }
+        }
+    }
+}
+
+#Preview {
+    CharacterQuotesView(movieId: .constant(""), pagination: .constant(false))
+}
