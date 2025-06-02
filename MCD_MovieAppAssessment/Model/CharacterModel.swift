@@ -30,4 +30,3 @@ struct CharacterDetail :Decodable, Identifiable, Hashable {
     var realm : String? = nil
     var spouse : String? = nil
 }
-
