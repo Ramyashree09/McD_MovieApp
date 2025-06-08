@@ -5,14 +5,7 @@
 //  Created by Ramyashree S on 5/30/25.
 //
 
-struct Character : Decodable {
-    var docs : [CharacterDetail]? = nil
-    var total : Int
-    var limit : Int
-    var offset : Int
-    var page : Int
-    var pages : Int
-}
+import Foundation
 
 struct CharacterDetail :Decodable, Identifiable, Hashable {
     var _id : String

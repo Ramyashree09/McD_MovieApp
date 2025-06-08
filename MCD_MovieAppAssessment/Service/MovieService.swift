@@ -9,7 +9,7 @@ import Foundation
 public protocol FetchDataProtocol {
     
     associatedtype DataType
-       func fetchData() async -> [DataType]?
+       func fetchData() async throws-> [DataType]?
 }
 
 class MovieListClass : FetchDataProtocol, ObservableObject {
@@ -18,16 +18,14 @@ class MovieListClass : FetchDataProtocol, ObservableObject {
     
     @Published var movieList: [MovieDetail]? = []
    
-    func fetchData() async -> [MovieDetail]? {
+    func fetchData() async throws-> [MovieDetail]? {
         do {
-            let movie: Movie = try await APIService.shared.fetchMyMockedData(file: MockDataFile.mockedMovieList, model: Movie.self)
-            await MainActor.run {
-                self.movieList = movie.docs
-            }
+            let movie: ResponseModel = try await
+            APIService.shared.fetchRequest(urlString: APIConstants.movie, model: ResponseModel<MovieDetail>.self)
+            print("Fetched movie from API: \(movie)")//debugging
+            self.movieList = movie.docs
         } catch {
-            await MainActor.run {
-                self.movieList = []
-            }
+            self.movieList = []
             print("Error fetching data: \(error.localizedDescription)")
         }
             return self.movieList

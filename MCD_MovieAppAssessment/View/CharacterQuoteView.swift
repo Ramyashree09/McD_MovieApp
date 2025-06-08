@@ -25,7 +25,6 @@ struct CharacterQuotesView : View {
     }
     
     var body: some View {
-        
         VStack {
             Text("NAME : \(characterDetail?.name ?? "")")
             Text("GENDER : \(characterDetail?.gender ?? "")")
@@ -34,36 +33,39 @@ struct CharacterQuotesView : View {
         .frame(width: UIScreen.main.bounds.width)
         .background(Color.clear)
         .bold()
-        
         Spacer()
         VStack {
-            if FeatureFlagClass.shared.isQuotesFeatureEnabled {
-                Text("\(quotesViewModel.filteredQuotesList.count) Quotes Found")
-                    .bold().background(Color.cyan)
-                List(quotesViewModel.filteredQuotesList, id: \.self) {
-                    quote in
-                    Text("Quote : \(quote.dialog)")
-                        .lineLimit(nil)
-                        .listRowBackground(AppColors.appTheme)
-                }
-                .listRowSpacing(10)
-                
-            } else {
-                Spacer()
-                Text("Quotes feature is disabled")
-                    .font(.headline)
-                    .foregroundColor(.gray)
-                Spacer()
-            }
+            QuotesView()
         }
         .onAppear {
             Task {
                 pagination = false
                 await quotesViewModel.fetchQuotesList()
-                await
-               
-                quotesViewModel.filteredQuotesList = quotesViewModel.filterQuotesByID(movieID: movieId, characterID: characterDetail?.id ?? "")
+                quotesViewModel.filteredQuotesList = await quotesViewModel.filterQuotesByID(movieID: movieId, characterID: characterDetail?.id ?? "")
             }
+        }
+    }
+}
+
+extension CharacterQuotesView {
+    @ViewBuilder
+    private func QuotesView() -> some View {
+        if FlagConstant.isFlagged {
+            Text("\(quotesViewModel.filteredQuotesList.count) Quotes Found")
+                .bold()
+            List(quotesViewModel.filteredQuotesList, id: \.self) {
+                quote in
+                Text("Quote : \(quote.dialog)")
+                    .lineLimit(nil)
+                    .listRowBackground(AppColors.appTheme)
+            }
+            .listRowSpacing(10)
+        } else {
+            Spacer()
+            Text("Quotes feature is disabled")
+                .font(.headline)
+                .foregroundColor(.gray)
+            Spacer()
         }
     }
 }

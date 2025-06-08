@@ -15,17 +15,12 @@ struct APIConstants {
     static let quotes = APIConstants.baseURL + "quote"
 }
 
-struct AppColors {
-    
-    static private let bgGradient = LinearGradient(colors: [.cyan, .gray.opacity(0.6) ], startPoint: .topLeading , endPoint: .bottomTrailing)
-    //static private let bgGradient = UIColor.cyan
-    static let green = UIColor.green
-    static let cyan = UIColor.cyan
-    static let appTheme = bgGradient
-}
-
 struct MockDataFile {
     static let mockedMovieList = "MockMovieList.json"
     static let mockedCharacterList = "MockCharacterList.json"
     static let mockedQuotesListList = "MockQuotesList.json"
+}
+
+struct FlagConstant {
+    static let isFlagged = true
 }

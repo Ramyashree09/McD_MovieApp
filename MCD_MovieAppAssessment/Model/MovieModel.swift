@@ -5,14 +5,7 @@
 //  Created by Ramyashree S on 5/30/25.
 //
 
-struct Movie : Decodable {
-    var docs : [MovieDetail]? = nil
-    var total : Int
-    var limit : Int
-    var offset : Int
-    var page : Int
-    var pages : Int
-}
+import Foundation
 
 struct MovieDetail : Decodable, Identifiable, Hashable {
     var _id : String

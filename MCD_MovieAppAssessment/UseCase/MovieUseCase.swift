@@ -12,7 +12,9 @@ class FetchDataUseCase<T: FetchDataProtocol> {
         self.service = service
     }
 
-     func execute() async -> [T.DataType] {
-        return await service.fetchData() ?? []
+     func execute() async throws -> [T.DataType] {
+         return try await service.fetchData() ?? []
     }
+    
+    
 }

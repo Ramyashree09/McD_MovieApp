@@ -1,5 +1,5 @@
 //
-//  LoadingView.swift
+//  LoadingViewModifier.swift
 //  MCD_MovieAppAssessment
 //
 //  Created by Ramyashree S on 5/30/25.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct LoadingView: View {
-    var body: some View {
+struct LoadingViewModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
         VStack {
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle(tint: .blue))
                 .padding()
-            
             Text("Loading...")
                 .foregroundColor(.black)
         }

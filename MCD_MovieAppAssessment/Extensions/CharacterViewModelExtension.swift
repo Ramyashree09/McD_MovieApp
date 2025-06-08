@@ -7,23 +7,29 @@
 
 extension CharacterViewModel {
     
-    func filterCharacterByID(movieID : String) async-> [CharacterDetail] {
-        await fetchCharactersList()
-       
-        let filteredQuotes = allQuotesList.filter { $0.movie == movieID }
-        let characterListTemp = await MainActor.run {
-            allCharactersList.filter { character in
-                    filteredQuotes.contains { quote in quote.character == character.id }
-                }.sorted { $0.name < $1.name }
+    func filterCharacterByID(movieID : String) async -> [CharacterDetail] {
+        
+        do {
+            try await fetchCharactersList()
+            
+            let filteredQuotes = allQuotesList.filter { $0.movie == movieID }
+            let characterListTemp = await MainActor.run {
+                allCharactersList.filter { character in
+                        filteredQuotes.contains { quote in quote.character == character.id }
+                    }.sorted { $0.name < $1.name }
+                }
+            await MainActor.run {
+                filteredCharacterList = characterListTemp
+                if filteredCharacterList.count > 0  {
+                    let range = filteredCharacterList.count > itemsPerPage ? 0..<itemsPerPage : 0..<filteredCharacterList.count
+                    self.paginationCharcterListArry.append(contentsOf: self.filteredCharacterList[range])
+                }
             }
-        await MainActor.run {
-            filteredCharacterList = characterListTemp
-            if filteredCharacterList.count > 0  {
-                let range = filteredCharacterList.count > itemsPerPage ? 0..<itemsPerPage : 0..<filteredCharacterList.count
-                self.paginationCharcterListArry.append(contentsOf: self.filteredCharacterList[range])
-            }
-        }
-        return filteredCharacterList
+            return filteredCharacterList
+                } catch {
+                   print("Error message")
+                }        
+        return [CharacterDetail]()
     }
     
     func loadMoreCharacters() async  {

@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct MCD_MovieAppAssessmentApp: App {
+    let movieUseCase = FetchDataUseCase(service: MovieListClass())
+    
     init() {
             let navBarAppearance = UINavigationBarAppearance()
             navBarAppearance.configureWithOpaqueBackground()
@@ -24,8 +26,7 @@ struct MCD_MovieAppAssessmentApp: App {
     
     var body: some Scene {
         WindowGroup {
-            
-            MovieListView()
+            MovieListView(viewModel: MovieViewModel(movieUseCase: movieUseCase) )
         }
     }
 }

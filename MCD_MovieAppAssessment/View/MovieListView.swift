@@ -8,47 +8,49 @@
 import SwiftUI
 
 struct MovieListView: View {
-    @StateObject private var viewModel: MovieViewModel<MovieListClass>
     
-    init() {
-        let movieUseCase = FetchDataUseCase(service: MovieListClass())
-        _viewModel = StateObject(wrappedValue: MovieViewModel(movieUseCase: movieUseCase))
-    }
+    @StateObject var viewModel: MovieViewModel<MovieListClass>
     
     var body: some View {
- 
-            NavigationView {
-                List(viewModel.movieList ?? [], id: \.self) { movie in
-                    NavigationLink {
-                        CharacterView(movieDetail: movie)
-                    } label: {
-                        Text(movie.name)
-                            .foregroundColor(.black)
-                    }
-                    .listRowBackground(AppColors.appTheme)
-                    .frame(height: 40)
-                }
-                .listRowSpacing(10)
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Text("Movies")
-                            .font(.largeTitle)
-                            .bold()
-                    }
-                }
+        
+        NavigationView {
+            ListView()
                 .onAppear {
                     Task {
                         await viewModel.loadMovies()
                     }
                 }
-            
             if viewModel.isLoading {
-                LoadingView()
+                modifier(LoadingViewModifier())
             }
         }
     }
 }
 
+extension MovieListView{
+    @ViewBuilder
+    private func ListView() -> some View {
+        List(viewModel.movieList ?? [], id: \.self) { movie in
+            NavigationLink {
+                CharacterView(movieDetail: movie)
+            } label: {
+                Text(movie.name)
+                    .foregroundColor(.black)
+            }
+            .listRowBackground(AppColors.appTheme)
+            .frame(height: 40)
+        }
+        .listRowSpacing(10)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Text("Movies")
+                    .font(.largeTitle)
+                    .bold()
+            }
+        }
+    }
+}
 #Preview {
-    MovieListView()
+    let movieUseCase = FetchDataUseCase(service: MovieListClass())
+    MovieListView(viewModel: MovieViewModel(movieUseCase: movieUseCase))
 }

@@ -5,14 +5,7 @@
 //  Created by Ramyashree S on 5/30/25.
 //
 
-struct Quotes : Decodable {
-    var docs : [QuotesDetail]? = nil
-    var total : Int
-    var limit : Int
-    var offset : Int
-    var page : Int
-    var pages : Int
-}
+import Foundation
 
 struct QuotesDetail :Decodable, Identifiable, Hashable {
     var _id : String

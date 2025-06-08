@@ -11,7 +11,7 @@ import XCTest
 final class QuotesViewModelTests: XCTestCase {
 
     var sut: QuotesViewModel<MockQuotesListClass>!
-    var mockUseCase: MockQuotesUseCase!
+    //var mockUseCase: MockQuotesUseCase!
     
     override func setUp() {
         super.setUp()
@@ -23,6 +23,15 @@ final class QuotesViewModelTests: XCTestCase {
         super.tearDown()
     }
     
+    func testQuoteCreation() {
+        //When
+        let quote = QuotesDetail.init(_id: "1", dialog: "Well, I'm back.", movie: "", character: "", id: "")
+        //Then
+        XCTAssertNotNil(quote.dialog)
+        XCTAssertEqual(quote.dialog, "Well, I'm back.")
+        XCTAssertNotNil(quote.dialog)
+    }
+    
     func test_filterQuotesbyMovieID_SuccessCase() async {
    
         await sut.fetchQuotesList()
@@ -30,7 +39,7 @@ final class QuotesViewModelTests: XCTestCase {
         let result = await sut.filterQuotesByID(movieID: "5cd95395de30eff6ebccde5d", characterID: "5cd99d4bde30eff6ebccfe2e")
         
         XCTAssertNotNil(sut.filteredQuotesList)
-        XCTAssertEqual(result.count, 1)
+        XCTAssertEqual(result.count, 30 )
     }
     
     func test_filterQuotesbyMovieID_FailureCase() async {

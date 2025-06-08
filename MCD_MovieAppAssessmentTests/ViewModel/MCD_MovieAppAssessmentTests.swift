@@ -28,14 +28,14 @@ final class MCD_MovieAppAssessmentTests: XCTestCase {
         await sut.loadMovies()
         
         XCTAssertNotNil(sut.movieList)
-        XCTAssertEqual(sut.movieList?.count, 1)
+        XCTAssertEqual(sut.movieList?.count, 8)
         XCTAssertEqual(sut.movieList?.first?.name, "The Lord of the Rings Series")
     }
     
     func test_getMovies_FailureCase() async {
         await sut.loadMovies()
         
-        XCTAssertEqual(sut.movieList?.count, 1)
+        XCTAssertEqual(sut.movieList?.count, 8)
         XCTAssertEqual(sut.movieList?.first?.name, "The Lord of the Rings Series")
         XCTAssertFalse(sut.movieList?.first?.name == "The Lord of the Rings Serie", "Movie name is wrong")
     }
