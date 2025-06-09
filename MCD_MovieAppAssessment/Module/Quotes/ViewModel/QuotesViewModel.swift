@@ -27,7 +27,7 @@ class QuotesViewModel<T: FetchDataProtocol>: BaseClass where T.DataType == Quote
                 self.isLoading = true
             }
         } catch {
-            print("Error Message")
+            self.errorMessage = "Could not fetch quotes: \(error.localizedDescription)"
         }
     }
 }

@@ -27,8 +27,8 @@ extension CharacterViewModel {
             }
             return filteredCharacterList
                 } catch {
-                   print("Error message")
-                }        
+                    self.errorMessage = "Request failed with error: \(error.localizedDescription)"
+                }
         return [CharacterDetail]()
     }
     

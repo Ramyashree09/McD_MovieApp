@@ -1,5 +1,5 @@
 //
-//  ResponseModel.swift
+//  Response.swift
 //  MCD_MovieAppAssessment
 //
 //  Created by Ramyashree S on 6/5/25.

@@ -18,7 +18,7 @@ class QuotesListClass : FetchDataProtocol, ObservableObject {
             self.quotesList = quotes.docs ?? [QuotesDetail]()
         } catch {
             self.quotesList = []
-            print("Error fetching data: \(error.localizedDescription)")
+            throw NetworkError.noData
         }
         return self.quotesList
     }

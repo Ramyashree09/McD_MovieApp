@@ -1,5 +1,5 @@
 //
-//  MovieService.swift
+//  Movie.swift
 //  MCD_MovieAppAssessment
 //
 //  Created by Ramyashree S on 5/30/25.
@@ -26,7 +26,7 @@ class MovieListClass : FetchDataProtocol, ObservableObject {
             self.movieList = movie.docs
         } catch {
             self.movieList = []
-            print("Error fetching data: \(error.localizedDescription)")
+            throw NetworkError.noData
         }
             return self.movieList
     }

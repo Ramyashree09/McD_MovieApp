@@ -9,4 +9,5 @@ import Foundation
 
  class BaseClass: ObservableObject {
     @Published var isLoading: Bool = true
+    @Published var errorMessage: String = ""
 }

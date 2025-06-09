@@ -1,5 +1,5 @@
 //
-//  MockQuotesListClass.swift
+//  QuotesListClass.swift
 //  MCD_MovieAppAssessment
 //
 //  Created by Ramyashree S on 5/30/25.
@@ -15,7 +15,7 @@ class MockQuotesListClass: FetchDataProtocol {
     func fetchData() throws -> [QuotesDetail]? {
         let quotesList = try MockService().decodableObject(forResource: "MockQuotesList", type: ResponseModel<QuotesDetail>.self)
         self.mockQuotesList = quotesList.docs ?? [QuotesDetail]()
-        print("Fectching Mock data-mockQuotesList:\(mockQuotesList))")
+        print("Fectching mockQuotesList:\(mockQuotesList))")
         return mockQuotesList
     }
 }

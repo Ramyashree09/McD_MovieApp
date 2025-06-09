@@ -12,7 +12,6 @@ class CharacterViewModel<T: FetchDataProtocol, U : FetchDataProtocol>: BaseClass
     @Published var allCharactersList : [CharacterDetail] = []
     @Published var filteredCharacterList : [CharacterDetail] = []
     @Published var paginationCharcterListArry : [CharacterDetail] = []
-    
     var currentPage = 2
     let itemsPerPage = 5
     private let characterUseCase: FetchDataUseCase<T>

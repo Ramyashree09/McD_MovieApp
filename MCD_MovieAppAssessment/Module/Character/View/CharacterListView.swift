@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct CharacterView : View {
     
     @StateObject var characterviewModel : CharacterViewModel<CharacterListClass, QuotesListClass>

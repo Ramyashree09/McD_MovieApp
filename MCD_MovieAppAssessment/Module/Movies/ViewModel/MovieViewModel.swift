@@ -1,5 +1,5 @@
 //
-//  Untitled.swift
+//  MoviewViewModel.swift
 //  MCD_MovieAppAssessment
 //
 //  Created by Ramyashree S on 5/30/25.
@@ -13,7 +13,7 @@ class MovieViewModel<T: FetchDataProtocol>: BaseClass where T.DataType == MovieD
     @Published var movieID : String = ""
     private let itemsPerPage = 5
     var currentPage = 1
-    //@Published var isLoading : Bool = true
+   
     private let movieUseCase: FetchDataUseCase<T>
     
     init(movieUseCase: FetchDataUseCase<T>) {
@@ -31,6 +31,6 @@ class MovieViewModel<T: FetchDataProtocol>: BaseClass where T.DataType == MovieD
                 isLoading = false
             }
         } catch {
-            print("Error Message")
+            self.errorMessage = "Could not Load movies: \(error.localizedDescription)"
         }      }
 }

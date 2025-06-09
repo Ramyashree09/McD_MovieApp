@@ -1,5 +1,5 @@
 //
-//  CharacterService.swift
+//  Character.swift
 //  MCD_MovieAppAssessment
 //
 //  Created by Ramyashree S on 5/30/25.
@@ -18,7 +18,7 @@ class CharacterListClass : FetchDataProtocol, ObservableObject {
             self.allCharacterList = character.docs ?? [CharacterDetail]()
         } catch {
             self.allCharacterList = []
-            print("Error fetching data: \(error.localizedDescription)")
+            throw NetworkError.noData
         }
         return self.allCharacterList
     }
