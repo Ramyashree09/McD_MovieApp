@@ -1,5 +1,5 @@
 //
-//  GenericAPIService.swift
+//  NetworkAPIService.swift
 //  MCD_MovieAppAssessment
 //
 //  Created by Ramyashree S on 5/30/25.
@@ -7,6 +7,12 @@
 
 import Foundation
 import SwiftUI
+
+public protocol FetchDataProtocol {
+    
+    associatedtype DataType
+       func fetchData() async throws-> [DataType]?
+}
 
 class APIService {
     static let shared = APIService()
