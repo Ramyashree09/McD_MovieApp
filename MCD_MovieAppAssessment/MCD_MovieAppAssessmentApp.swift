@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct MCD_MovieAppAssessmentApp: App {
-    let movieUseCase = FetchDataUseCase(service: MovieListClass())
+    let movieUseCase = FetchDataUseCase(service: MovieService())
     
     init() {
             let navBarAppearance = UINavigationBarAppearance()

@@ -1,5 +1,5 @@
 //
-//  APIService.swift
+//  GenericAPIService.swift
 //  MCD_MovieAppAssessment
 //
 //  Created by Ramyashree S on 5/30/25.
@@ -10,7 +10,7 @@ import SwiftUI
 
 class APIService {
     static let shared = APIService()
-    
+
     private init() {}
     
     //Fetch data from API by creating valid url

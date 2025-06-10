@@ -1,5 +1,5 @@
 //
-//  MovieUseCase.swift
+//  GenericFetchUseCase.swift
 //  MCD_MovieAppAssessment
 //
 //  Created by Ramyashree S on 6/2/25.

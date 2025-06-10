@@ -7,7 +7,7 @@
 
 import Foundation
 
-class QuotesListClass : FetchDataProtocol, ObservableObject {
+class QuotesService : FetchDataProtocol {
     typealias DataType = QuotesDetail
     @Published var quotesList: [QuotesDetail] = []
     func fetchData() async throws -> [QuotesDetail]? {

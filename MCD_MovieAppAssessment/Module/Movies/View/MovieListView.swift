@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MovieListView: View {
     
-    @StateObject var viewModel: MovieViewModel<MovieListClass>
+    @StateObject var viewModel: MovieViewModel<MovieService>
     
     var body: some View {
         
@@ -51,6 +51,6 @@ extension MovieListView{
     }
 }
 #Preview {
-    let movieUseCase = FetchDataUseCase(service: MovieListClass())
+    let movieUseCase = FetchDataUseCase(service: MovieService())
     MovieListView(viewModel: MovieViewModel(movieUseCase: movieUseCase))
 }

@@ -10,13 +10,13 @@ import SwiftUI
 
 struct CharacterView : View {
     
-    @StateObject var characterviewModel : CharacterViewModel<CharacterListClass, QuotesListClass>
+    @StateObject var characterviewModel : CharacterViewModel<CharacterService, QuotesService>
     @State var movieDetail : MovieDetail
     @State var pagination : Bool = true
     
     init(movieDetail: MovieDetail) {
-        let characterUseCase = FetchDataUseCase<CharacterListClass>(service: CharacterListClass())
-        let quotesUseCase = FetchDataUseCase<QuotesListClass>(service: QuotesListClass())
+        let characterUseCase = FetchDataUseCase<CharacterService>(service: CharacterService())
+        let quotesUseCase = FetchDataUseCase<QuotesService>(service: QuotesService())
         _characterviewModel = StateObject(wrappedValue: CharacterViewModel(characterUseCase: characterUseCase, quotesUseCase: quotesUseCase))
         _movieDetail = State(initialValue: movieDetail)
     }

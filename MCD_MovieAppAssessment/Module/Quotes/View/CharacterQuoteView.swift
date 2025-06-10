@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct CharacterQuotesView : View {
-    @StateObject private var quotesViewModel: QuotesViewModel<QuotesListClass>
+    @StateObject private var quotesViewModel: QuotesViewModel<QuotesService>
     @Binding var movieId : String
     @Binding var pagination : Bool
     var characterDetail : CharacterDetail?
     
     init(characterDetail: CharacterDetail? = nil,
          movieId: Binding<String>, pagination: Binding<Bool>) {
-        let quotesUseCase = FetchDataUseCase(service: QuotesListClass())
+        let quotesUseCase = FetchDataUseCase(service: QuotesService())
         _quotesViewModel = StateObject(wrappedValue: QuotesViewModel(quotesUseCase:
                                                                         quotesUseCase))
         
