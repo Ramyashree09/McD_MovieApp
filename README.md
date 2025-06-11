@@ -1,4 +1,4 @@
-#  MCD_MovieAppAssigment
+#  MovieApp
 This application features users to get information of list of Movies available.
 
 #Description

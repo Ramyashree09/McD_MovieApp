@@ -28,26 +28,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8C174BC62DE8DCA300E7EF6D /* MCD_MovieAppAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCD_MovieAppAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C174BD82DE8DCA800E7EF6D /* MCD_MovieAppAssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCD_MovieAppAssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C174BE22DE8DCA800E7EF6D /* MCD_MovieAppAssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCD_MovieAppAssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C174BC62DE8DCA300E7EF6D /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C174BD82DE8DCA800E7EF6D /* MovieAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C174BE22DE8DCA800E7EF6D /* MovieAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C528EB82DEE1FBB008F763C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		8C174BC82DE8DCA300E7EF6D /* MCD_MovieAppAssessment */ = {
+		8C174BC82DE8DCA300E7EF6D /* MovieApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MCD_MovieAppAssessment;
+			path = MovieApp;
 			sourceTree = "<group>";
 		};
-		8C174BDB2DE8DCA800E7EF6D /* MCD_MovieAppAssessmentTests */ = {
+		8C174BDB2DE8DCA800E7EF6D /* MovieAppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MCD_MovieAppAssessmentTests;
+			path = MovieAppTests;
 			sourceTree = "<group>";
 		};
-		8C174BE52DE8DCA800E7EF6D /* MCD_MovieAppAssessmentUITests */ = {
+		8C174BE52DE8DCA800E7EF6D /* MovieAppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MCD_MovieAppAssessmentUITests;
+			path = MovieAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -81,9 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				8C528EB82DEE1FBB008F763C /* README.md */,
-				8C174BC82DE8DCA300E7EF6D /* MCD_MovieAppAssessment */,
-				8C174BDB2DE8DCA800E7EF6D /* MCD_MovieAppAssessmentTests */,
-				8C174BE52DE8DCA800E7EF6D /* MCD_MovieAppAssessmentUITests */,
+				8C174BC82DE8DCA300E7EF6D /* MovieApp */,
+				8C174BDB2DE8DCA800E7EF6D /* MovieAppTests */,
+				8C174BE52DE8DCA800E7EF6D /* MovieAppUITests */,
 				8C174BC72DE8DCA300E7EF6D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,9 +91,9 @@
 		8C174BC72DE8DCA300E7EF6D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C174BC62DE8DCA300E7EF6D /* MCD_MovieAppAssessment.app */,
-				8C174BD82DE8DCA800E7EF6D /* MCD_MovieAppAssessmentTests.xctest */,
-				8C174BE22DE8DCA800E7EF6D /* MCD_MovieAppAssessmentUITests.xctest */,
+				8C174BC62DE8DCA300E7EF6D /* MovieApp.app */,
+				8C174BD82DE8DCA800E7EF6D /* MovieAppTests.xctest */,
+				8C174BE22DE8DCA800E7EF6D /* MovieAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,9 +101,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C174BC52DE8DCA300E7EF6D /* MCD_MovieAppAssessment */ = {
+		8C174BC52DE8DCA300E7EF6D /* MovieApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C174BEC2DE8DCA800E7EF6D /* Build configuration list for PBXNativeTarget "MCD_MovieAppAssessment" */;
+			buildConfigurationList = 8C174BEC2DE8DCA800E7EF6D /* Build configuration list for PBXNativeTarget "MovieApp" */;
 			buildPhases = (
 				8C174BC22DE8DCA300E7EF6D /* Sources */,
 				8C174BC32DE8DCA300E7EF6D /* Frameworks */,
@@ -114,18 +114,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				8C174BC82DE8DCA300E7EF6D /* MCD_MovieAppAssessment */,
+				8C174BC82DE8DCA300E7EF6D /* MovieApp */,
 			);
-			name = MCD_MovieAppAssessment;
+			name = MovieApp;
 			packageProductDependencies = (
 			);
 			productName = MCD_MovieAppAssessment;
-			productReference = 8C174BC62DE8DCA300E7EF6D /* MCD_MovieAppAssessment.app */;
+			productReference = 8C174BC62DE8DCA300E7EF6D /* MovieApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8C174BD72DE8DCA800E7EF6D /* MCD_MovieAppAssessmentTests */ = {
+		8C174BD72DE8DCA800E7EF6D /* MovieAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C174BEF2DE8DCA800E7EF6D /* Build configuration list for PBXNativeTarget "MCD_MovieAppAssessmentTests" */;
+			buildConfigurationList = 8C174BEF2DE8DCA800E7EF6D /* Build configuration list for PBXNativeTarget "MovieAppTests" */;
 			buildPhases = (
 				8C174BD42DE8DCA800E7EF6D /* Sources */,
 				8C174BD52DE8DCA800E7EF6D /* Frameworks */,
@@ -137,18 +137,18 @@
 				8C174BDA2DE8DCA800E7EF6D /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				8C174BDB2DE8DCA800E7EF6D /* MCD_MovieAppAssessmentTests */,
+				8C174BDB2DE8DCA800E7EF6D /* MovieAppTests */,
 			);
-			name = MCD_MovieAppAssessmentTests;
+			name = MovieAppTests;
 			packageProductDependencies = (
 			);
 			productName = MCD_MovieAppAssessmentTests;
-			productReference = 8C174BD82DE8DCA800E7EF6D /* MCD_MovieAppAssessmentTests.xctest */;
+			productReference = 8C174BD82DE8DCA800E7EF6D /* MovieAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8C174BE12DE8DCA800E7EF6D /* MCD_MovieAppAssessmentUITests */ = {
+		8C174BE12DE8DCA800E7EF6D /* MovieAppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C174BF22DE8DCA800E7EF6D /* Build configuration list for PBXNativeTarget "MCD_MovieAppAssessmentUITests" */;
+			buildConfigurationList = 8C174BF22DE8DCA800E7EF6D /* Build configuration list for PBXNativeTarget "MovieAppUITests" */;
 			buildPhases = (
 				8C174BDE2DE8DCA800E7EF6D /* Sources */,
 				8C174BDF2DE8DCA800E7EF6D /* Frameworks */,
@@ -160,13 +160,13 @@
 				8C174BE42DE8DCA800E7EF6D /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				8C174BE52DE8DCA800E7EF6D /* MCD_MovieAppAssessmentUITests */,
+				8C174BE52DE8DCA800E7EF6D /* MovieAppUITests */,
 			);
-			name = MCD_MovieAppAssessmentUITests;
+			name = MovieAppUITests;
 			packageProductDependencies = (
 			);
 			productName = MCD_MovieAppAssessmentUITests;
-			productReference = 8C174BE22DE8DCA800E7EF6D /* MCD_MovieAppAssessmentUITests.xctest */;
+			productReference = 8C174BE22DE8DCA800E7EF6D /* MovieAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -192,7 +192,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8C174BC12DE8DCA300E7EF6D /* Build configuration list for PBXProject "MCD_MovieAppAssessment" */;
+			buildConfigurationList = 8C174BC12DE8DCA300E7EF6D /* Build configuration list for PBXProject "MovieApp" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -206,9 +206,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C174BC52DE8DCA300E7EF6D /* MCD_MovieAppAssessment */,
-				8C174BD72DE8DCA800E7EF6D /* MCD_MovieAppAssessmentTests */,
-				8C174BE12DE8DCA800E7EF6D /* MCD_MovieAppAssessmentUITests */,
+				8C174BC52DE8DCA300E7EF6D /* MovieApp */,
+				8C174BD72DE8DCA800E7EF6D /* MovieAppTests */,
+				8C174BE12DE8DCA800E7EF6D /* MovieAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -265,12 +265,12 @@
 /* Begin PBXTargetDependency section */
 		8C174BDA2DE8DCA800E7EF6D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8C174BC52DE8DCA300E7EF6D /* MCD_MovieAppAssessment */;
+			target = 8C174BC52DE8DCA300E7EF6D /* MovieApp */;
 			targetProxy = 8C174BD92DE8DCA800E7EF6D /* PBXContainerItemProxy */;
 		};
 		8C174BE42DE8DCA800E7EF6D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8C174BC52DE8DCA300E7EF6D /* MCD_MovieAppAssessment */;
+			target = 8C174BC52DE8DCA300E7EF6D /* MovieApp */;
 			targetProxy = 8C174BE32DE8DCA800E7EF6D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -416,7 +416,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "api-example.MCD-MovieAppAssessment";
+				PRODUCT_BUNDLE_IDENTIFIER = "api-example.MovieApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -446,7 +446,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "api-example.MCD-MovieAppAssessment";
+				PRODUCT_BUNDLE_IDENTIFIER = "api-example.MovieApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -469,7 +469,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MCD_MovieAppAssessment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MCD_MovieAppAssessment";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MovieApp";
 			};
 			name = Debug;
 		};
@@ -487,7 +487,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MCD_MovieAppAssessment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MCD_MovieAppAssessment";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MovieApp";
 			};
 			name = Release;
 		};
@@ -526,7 +526,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C174BC12DE8DCA300E7EF6D /* Build configuration list for PBXProject "MCD_MovieAppAssessment" */ = {
+		8C174BC12DE8DCA300E7EF6D /* Build configuration list for PBXProject "MovieApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C174BEA2DE8DCA800E7EF6D /* Debug */,
@@ -535,7 +535,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C174BEC2DE8DCA800E7EF6D /* Build configuration list for PBXNativeTarget "MCD_MovieAppAssessment" */ = {
+		8C174BEC2DE8DCA800E7EF6D /* Build configuration list for PBXNativeTarget "MovieApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C174BED2DE8DCA800E7EF6D /* Debug */,
@@ -544,7 +544,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C174BEF2DE8DCA800E7EF6D /* Build configuration list for PBXNativeTarget "MCD_MovieAppAssessmentTests" */ = {
+		8C174BEF2DE8DCA800E7EF6D /* Build configuration list for PBXNativeTarget "MovieAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C174BF02DE8DCA800E7EF6D /* Debug */,
@@ -553,7 +553,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C174BF22DE8DCA800E7EF6D /* Build configuration list for PBXNativeTarget "MCD_MovieAppAssessmentUITests" */ = {
+		8C174BF22DE8DCA800E7EF6D /* Build configuration list for PBXNativeTarget "MovieAppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C174BF32DE8DCA800E7EF6D /* Debug */,
