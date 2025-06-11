@@ -10,12 +10,12 @@ import XCTest
 @testable import MCD_MovieAppAssessment
 final class MCD_MovieAppAssessmentTests: XCTestCase {
     
-    var sut: MovieViewModel<MockMovieListClass>!
-    var mockService: MockMovieListClass!
+    var sut: MovieViewModel<MockMovie>!
+    var mockService: MockMovie!
 
     override func setUp() {
         super.setUp()
-        let useCase = FetchDataUseCase(service: MockMovieListClass())
+        let useCase = FetchDataUseCase(service: MockMovie())
         sut = MovieViewModel(movieUseCase: useCase)
     }
     

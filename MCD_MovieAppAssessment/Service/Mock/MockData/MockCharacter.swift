@@ -1,5 +1,5 @@
 //
-//  CharacterListClass.swift
+//  MockCharacter.swift
 //  MCD_MovieAppAssessment
 //
 //  Created by Ramyashree S on 5/30/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MockCharacterListClass: FetchDataProtocol {
+class MockCharacter: FetchDataProtocol {
     typealias DataType = CharacterDetail
     @Published var mockCharacterList = [CharacterDetail]()
     var result: Result<[CharacterDetail], NetworkError>!
@@ -21,7 +21,7 @@ class MockCharacterListClass: FetchDataProtocol {
 }
 
 // Mock of FetchDataUseCase
-class MockCharacterUseCase: FetchDataUseCase<MockCharacterListClass> {
+class MockCharacterUseCase: FetchDataUseCase<MockCharacter> {
     override func execute() async -> [CharacterDetail] {
         return [CharacterDetail]()
     }

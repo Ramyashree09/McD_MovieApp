@@ -10,23 +10,23 @@ import SwiftUI
 
 struct CharacterView : View {
     
-    @StateObject var characterviewModel : CharacterViewModel<CharacterService, QuotesService>
+    @StateObject var characterViewModel : CharacterViewModel<CharacterService, QuotesService>
     @State var movieDetail : MovieDetail
     @State var pagination : Bool = true
     
     init(movieDetail: MovieDetail) {
         let characterUseCase = FetchDataUseCase<CharacterService>(service: CharacterService())
         let quotesUseCase = FetchDataUseCase<QuotesService>(service: QuotesService())
-        _characterviewModel = StateObject(wrappedValue: CharacterViewModel(characterUseCase: characterUseCase, quotesUseCase: quotesUseCase))
+        _characterViewModel = StateObject(wrappedValue: CharacterViewModel(characterUseCase: characterUseCase, quotesUseCase: quotesUseCase))
         _movieDetail = State(initialValue: movieDetail)
     }
     
     var body: some View {
-        if characterviewModel.isLoading {
+        if characterViewModel.isLoading {
             modifier(LoadingViewModifier())
         }
         VStack {
-            if characterviewModel.paginationCharcterListArry.count > 0 {
+            if characterViewModel.paginationCharcterListArry.count > 0 {
                 Spacer()
                 CharacterListView()
                 LoadingView()
@@ -45,10 +45,10 @@ struct CharacterView : View {
             }
         }
         .onAppear {
-            characterviewModel.onLoad()
+            characterViewModel.onLoad()
             if pagination {
                 Task {
-                    await characterviewModel.filterCharacterByID(movieID: movieDetail.id)
+                    await characterViewModel.filterCharacterByID(movieID: movieDetail.id)
                 }
             }
         }
@@ -60,7 +60,7 @@ extension CharacterView {
     private func CharacterListView() -> some View {
         Text("Characters of \(movieDetail.name)")
             .bold()
-        List(characterviewModel.paginationCharcterListArry, id: \.self) { character in
+        List(characterViewModel.paginationCharcterListArry, id: \.self) { character in
             NavigationLink {
                 CharacterQuotesView(characterDetail: character, movieId:  $movieDetail._id, pagination: $pagination)
             } label: {
@@ -71,15 +71,14 @@ extension CharacterView {
         }
         .listRowSpacing(10)
     }
-    
     @ViewBuilder
     private func LoadingView() -> some View {
-        if (characterviewModel.paginationCharcterListArry.count) < (characterviewModel.filteredCharacterList.count)  {
+        if (characterViewModel.paginationCharcterListArry.count) < (characterViewModel.filteredCharacterList.count)  {
             
             Button("Load More") {
                 pagination = true
                 Task {
-                    await characterviewModel.loadMoreCharacters()
+                    await characterViewModel.loadMoreCharacters()
                 }
             }
             .frame(maxWidth: .infinity, alignment: .center)

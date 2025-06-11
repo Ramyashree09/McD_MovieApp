@@ -8,12 +8,6 @@
 import Foundation
 import SwiftUI
 
-public protocol FetchDataProtocol {
-    
-    associatedtype DataType
-       func fetchData() async throws-> [DataType]?
-}
-
 class APIService {
     static let shared = APIService()
 

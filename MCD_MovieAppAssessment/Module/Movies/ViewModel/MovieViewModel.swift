@@ -7,13 +7,11 @@
 
 import Foundation
 
-class MovieViewModel<T: FetchDataProtocol>: BaseClass where T.DataType == MovieDetail {
-    
+class MovieViewModel<T: FetchDataProtocol>: BaseViewModel where T.DataType == MovieDetail {
     @Published var movieList : [MovieDetail]? = nil
     @Published var movieID : String = ""
     private let itemsPerPage = 5
     var currentPage = 1
-   
     private let movieUseCase: FetchDataUseCase<T>
     
     init(movieUseCase: FetchDataUseCase<T>) {

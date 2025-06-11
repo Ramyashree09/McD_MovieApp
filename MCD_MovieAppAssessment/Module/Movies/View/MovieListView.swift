@@ -7,10 +7,8 @@
 
 import SwiftUI
 
-struct MovieListView: View {
-    
+struct MovieListView: View {    
     @StateObject var viewModel: MovieViewModel<MovieService>
-    
     var body: some View {
         
         NavigationView {

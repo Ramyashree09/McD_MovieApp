@@ -10,12 +10,12 @@ import XCTest
 @testable import MCD_MovieAppAssessment
 final class CharacterViewModelTests: XCTestCase {
     //MARK: - Properties
-    var sut: CharacterViewModel<MockCharacterListClass, MockQuotesListClass>!
+    var sut: CharacterViewModel<MockCharacter, MockQuotes>!
     var quoteModel: QuotesDetail!
     
     override func setUpWithError() throws {
         super.setUp()
-        sut = CharacterViewModel<MockCharacterListClass, MockQuotesListClass>(characterUseCase:  FetchDataUseCase(service: MockCharacterListClass()), quotesUseCase: FetchDataUseCase(service: MockQuotesListClass()))
+        sut = CharacterViewModel<MockCharacter, MockQuotes>(characterUseCase:  FetchDataUseCase(service: MockCharacter()), quotesUseCase: FetchDataUseCase(service: MockQuotes()))
         sut.allCharactersList = [CharacterDetail.init(_id: "1", name: "Arwen",race: "Hobbit", birth: "Before ,TA 1944"), CharacterDetail.init(_id: "2", name: "Boromir")]
     }
     

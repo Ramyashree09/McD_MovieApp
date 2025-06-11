@@ -8,8 +8,7 @@ import Foundation
 
 class MovieService : FetchDataProtocol {
     typealias DataType = MovieDetail
-    @Published var movieList: [MovieDetail]? = []
-   
+    var movieList: [MovieDetail]? = []   
     func fetchData() async throws-> [MovieDetail]? {
         do {
             let movie: ResponseModel = try await

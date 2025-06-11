@@ -9,7 +9,7 @@ import Foundation
 
 class QuotesService : FetchDataProtocol {
     typealias DataType = QuotesDetail
-    @Published var quotesList: [QuotesDetail] = []
+    var quotesList: [QuotesDetail] = []
     func fetchData() async throws -> [QuotesDetail]? {
         do {
             let quotes: ResponseModel = try await

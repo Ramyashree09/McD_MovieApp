@@ -8,8 +8,7 @@
 import Foundation
 
 class CharacterService : FetchDataProtocol {
-    @Published var allCharacterList: [CharacterDetail] = []
-    
+    var allCharacterList: [CharacterDetail] = []
     func fetchData() async throws -> [CharacterDetail]? {
         do {
             let character: ResponseModel = try await

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LoadingViewModifier: ViewModifier {
-    
     func body(content: Content) -> some View {
         VStack {
             ProgressView()

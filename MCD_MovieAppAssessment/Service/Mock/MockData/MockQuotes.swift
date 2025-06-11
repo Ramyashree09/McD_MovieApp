@@ -1,5 +1,5 @@
 //
-//  QuotesListClass.swift
+//  MockQuotes.swift
 //  MCD_MovieAppAssessment
 //
 //  Created by Ramyashree S on 5/30/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MockQuotesListClass: FetchDataProtocol {
+class MockQuotes: FetchDataProtocol {
     typealias DataType = QuotesDetail
     var mockQuotesList = [QuotesDetail]()
     var result: Result<[QuotesDetail], NetworkError>!
@@ -21,9 +21,10 @@ class MockQuotesListClass: FetchDataProtocol {
 }
 
 // Mock of FetchDataUseCase
-class MockQuotesUseCase: FetchDataUseCase<MockQuotesListClass> {
+class MockQuotesUseCase: FetchDataUseCase<MockQuotes> {
     override func execute() async -> [QuotesDetail] {
         return [QuotesDetail]()
     }
 }
+
 

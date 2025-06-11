@@ -10,12 +10,12 @@ import XCTest
 
 final class QuotesViewModelTests: XCTestCase {
 
-    var sut: QuotesViewModel<MockQuotesListClass>!
+    var sut: QuotesViewModel<MockQuotes>!
     //var mockUseCase: MockQuotesUseCase!
     
     override func setUp() {
         super.setUp()
-        sut = QuotesViewModel<MockQuotesListClass>(quotesUseCase: FetchDataUseCase(service: MockQuotesListClass()))
+        sut = QuotesViewModel<MockQuotes>(quotesUseCase: FetchDataUseCase(service: MockQuotes()))
     }
     
     override func tearDown() {

@@ -8,55 +8,55 @@
 import XCTest
 @testable import MCD_MovieAppAssessment
 
-final class CharacterAPIUnitTests: XCTestCase {
+final class APIUnitTests: XCTestCase {
     //MARK: - Properties
-    var sut_character = MockCharacterListClass()
-    var sut_quotes =  MockQuotesListClass()
-    var sut_movies = MockMovieListClass()
+    var sutCharacter = MockCharacter()
+    var sutQuotes =  MockQuotes()
+    var sutMovies = MockMovie()
     
     func testMovieAPI_WhenSuccess()  throws {
-        let mockService = MockMovieListClass()
+        let mockService = MockMovie()
         guard let fetchData = try? mockService.fetchData() else { return }
         mockService.result = .success(fetchData)
-        try? sut_movies.fetchData()
+        try? sutMovies.fetchData()
         print("MockAPI data:\(mockService.mockMovieList)")
-        XCTAssert(!sut_movies.mockMovieList.isEmpty)
+        XCTAssert(!sutMovies.mockMovieList.isEmpty)
     }
     
     func testMovieAPI_WhenFailure()  {
-        let mockService = MockMovieListClass()
+        let mockService = MockMovie()
         mockService.result = .failure(.noData)
-        XCTAssert(sut_movies.mockMovieList.isEmpty)
+        XCTAssert(sutMovies.mockMovieList.isEmpty)
     }
     
     func testCharcaterAPI_WhenSuccess()  throws {
-        let mockService = MockCharacterListClass()
+        let mockService = MockCharacter()
         guard let fetchData = try? mockService.fetchData() else { return }
         mockService.result = .success(fetchData)
-        try? sut_character.fetchData()
+        try? sutCharacter.fetchData()
         print("MockAPI data:\(mockService.mockCharacterList)")
-        XCTAssert(!sut_character.mockCharacterList.isEmpty)
+        XCTAssert(!sutCharacter.mockCharacterList.isEmpty)
     }
     
     func testCharcaterAPI_WhenFailure()  {
-        let mockService = MockCharacterListClass()
+        let mockService = MockCharacter()
         mockService.result = .failure(.noData)
-        XCTAssert(sut_character.mockCharacterList.isEmpty)
+        XCTAssert(sutCharacter.mockCharacterList.isEmpty)
     }
     
     func testQuotesAPI_WhenSuccess()  throws {
-        let mockService = MockQuotesListClass()
+        let mockService = MockQuotes()
         guard let fetchData = try? mockService.fetchData() else { return }
         mockService.result = .success(fetchData)
-        try? sut_quotes.fetchData()
+        try? sutQuotes.fetchData()
         print("MockAPI data:\(mockService.mockQuotesList)")
-        XCTAssert(!sut_quotes.mockQuotesList.isEmpty)
+        XCTAssert(!sutQuotes.mockQuotesList.isEmpty)
     }
     
     func testQuotesAPI_WhenFailure()  {
-        let mockService = MockQuotesListClass()
+        let mockService = MockQuotes()
         mockService.result = .failure(.noData)
-        XCTAssert(sut_quotes.mockQuotesList.isEmpty)
+        XCTAssert(sutQuotes.mockQuotesList.isEmpty)
     }
 }
 

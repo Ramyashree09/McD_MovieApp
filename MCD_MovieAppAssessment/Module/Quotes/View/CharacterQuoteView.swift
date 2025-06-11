@@ -18,7 +18,6 @@ struct CharacterQuotesView : View {
         let quotesUseCase = FetchDataUseCase(service: QuotesService())
         _quotesViewModel = StateObject(wrappedValue: QuotesViewModel(quotesUseCase:
                                                                         quotesUseCase))
-        
         self.characterDetail = characterDetail
         _movieId = movieId
         _pagination = pagination

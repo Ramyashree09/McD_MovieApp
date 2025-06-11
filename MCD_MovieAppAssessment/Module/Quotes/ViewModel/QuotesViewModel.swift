@@ -7,7 +7,7 @@
 
 import Foundation
 
-class QuotesViewModel<T: FetchDataProtocol>: BaseClass where T.DataType == QuotesDetail {
+class QuotesViewModel<T: FetchDataProtocol>: BaseViewModel where T.DataType == QuotesDetail {
     @Published var allQuotesList : [QuotesDetail] = []
     @Published var filteredQuotesList : [QuotesDetail] = []
     private let quotesUseCase: FetchDataUseCase<T>
@@ -31,3 +31,19 @@ class QuotesViewModel<T: FetchDataProtocol>: BaseClass where T.DataType == Quote
         }
     }
 }
+
+extension QuotesViewModel {
+    func filterQuotesByID(movieID : String, characterID : String) async-> [QuotesDetail] {
+        let filteredQuotes = allQuotesList.filter { quotes in
+            quotes.movie == movieID
+        }.filter { quote in
+            quote.character == characterID
+        }
+        await MainActor.run {
+            self.filteredQuotesList = filteredQuotes
+            print("FilteredQuotesList, \(self.filteredQuotesList.count)")
+        }
+        return filteredQuotesList
+    }
+}
+
