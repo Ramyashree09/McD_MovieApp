@@ -14,7 +14,6 @@ public enum NetworkError: Error {
     case requestFailed
     case noConnection
     case noData
-    case rateLimit
 }
 
 extension NetworkError:LocalizedError {
@@ -32,8 +31,6 @@ extension NetworkError:LocalizedError {
             return "No internet connection."
         case .noData:
            return "No data found."
-        case .rateLimit:
-            return "You've exceeded the Rate Limit."
         }
     }
 }

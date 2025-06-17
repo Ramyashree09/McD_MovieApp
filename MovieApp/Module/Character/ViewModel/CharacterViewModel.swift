@@ -12,6 +12,7 @@ class CharacterViewModel<T: FetchDataProtocol, U : FetchDataProtocol>: BaseViewM
     @Published var allCharactersList : [CharacterDetail] = []
     @Published var filteredCharacterList : [CharacterDetail] = []
     @Published var paginationCharcterListArry : [CharacterDetail] = []
+    @Published var errorText: String?
     var currentPage = 2
     let itemsPerPage = 5
     private let characterUseCase: FetchDataUseCase<T>
@@ -59,25 +60,27 @@ extension CharacterViewModel {
             let filteredQuotes = allQuotesList.filter { $0.movie == movieID }
             let characterListTemp = await MainActor.run {
                 allCharactersList.filter { character in
-                        filteredQuotes.contains { quote in quote.character == character.id }
-                    }.sorted { $0.name < $1.name }
-                }
+                    filteredQuotes.contains { quote in quote.character == character.id }
+                }.sorted { $0.name < $1.name }
+            }
             await MainActor.run {
                 filteredCharacterList = characterListTemp
                 if filteredCharacterList.count > 0  {
                     let range = filteredCharacterList.count > itemsPerPage ? 0..<itemsPerPage : 0..<filteredCharacterList.count
                     self.paginationCharcterListArry.append(contentsOf: self.filteredCharacterList[range])
+                } else {
+                    self.errorText = Constants.noCharcaters
                 }
             }
             return filteredCharacterList
-                } catch {
-                    self.errorMessage = "Request failed with error: \(error.localizedDescription)"
-                }
+        } catch {
+            self.errorMessage = "Could not load Characters: \(error.localizedDescription)"
+        }
         return [CharacterDetail]()
     }
     
     func loadMoreCharacters() async  {
-
+        
         let startIndex = (currentPage - 1) * itemsPerPage
         let endIndex = min(startIndex + itemsPerPage, self.filteredCharacterList.count)
         if startIndex < filteredCharacterList.count  {
@@ -86,6 +89,6 @@ extension CharacterViewModel {
                 self.currentPage += 1
             }
         }
-        }
+    }
 }
 

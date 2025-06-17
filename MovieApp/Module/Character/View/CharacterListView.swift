@@ -34,14 +34,14 @@ struct CharacterView : View {
             else {
                 VStack {
                     Spacer()
-                    Text("No characters Found for \(movieDetail.name) Movie")
-                        .font(.title3)
-                        .foregroundColor(.gray)
-                        .bold()
+                    if let errorText = characterViewModel.errorText {
+                        Text(errorText)
+                            .foregroundColor(.red)
+                            .padding()
+                    }
                     Spacer()
                     Spacer()
                 }
-                
             }
         }
         .onAppear {

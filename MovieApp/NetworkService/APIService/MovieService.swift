@@ -12,7 +12,7 @@ class MovieService : FetchDataProtocol {
     func fetchData() async throws-> [MovieDetail]? {
         do {
             let movie: ResponseModel = try await
-            APIService.shared.fetchRequest(urlString: APIConstants.movie, model: ResponseModel<MovieDetail>.self)
+            Network.shared.fetchRequest(urlString: APIConstants.movie, model: ResponseModel<MovieDetail>.self)
             print("Fetched movie from API: \(movie)")//debugging
             self.movieList = movie.docs
         } catch {

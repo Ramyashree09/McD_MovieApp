@@ -12,7 +12,7 @@ class CharacterService : FetchDataProtocol {
     func fetchData() async throws -> [CharacterDetail]? {
         do {
             let character: ResponseModel = try await
-            APIService.shared.fetchRequest(urlString: APIConstants.characters, model: ResponseModel<CharacterDetail>.self)
+            Network.shared.fetchRequest(urlString: APIConstants.characters, model: ResponseModel<CharacterDetail>.self)
             print("Fetched character from API response: \(character)")//debugging
             self.allCharacterList = character.docs ?? [CharacterDetail]()
         } catch {

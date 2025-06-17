@@ -24,3 +24,7 @@ struct MockDataFile {
 struct FlagConstant {
     static let isFlagged = true
 }
+
+struct Constants {
+    static let noCharcaters = "No Characters avaiable"
+}

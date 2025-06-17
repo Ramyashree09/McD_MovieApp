@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-class APIService {
-    static let shared = APIService()
+class Network {
+    static let shared = Network()
     private init() {}
     //Fetch data from API by creating valid url
     func fetchRequest<T: Decodable>(urlString: String, model : T.Type) async throws -> T {

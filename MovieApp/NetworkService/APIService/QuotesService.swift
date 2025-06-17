@@ -13,7 +13,7 @@ class QuotesService : FetchDataProtocol {
     func fetchData() async throws -> [QuotesDetail]? {
         do {
             let quotes: ResponseModel = try await
-            APIService.shared.fetchRequest(urlString: APIConstants.quotes, model: ResponseModel<QuotesDetail>.self)
+            Network.shared.fetchRequest(urlString: APIConstants.quotes, model: ResponseModel<QuotesDetail>.self)
             print("Fetched quotes from API response: \(quotes)") //debugging
             self.quotesList = quotes.docs ?? [QuotesDetail]()
         } catch {
